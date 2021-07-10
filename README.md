@@ -8,6 +8,8 @@ What we'll do:
 3. Add a button to our website that calls the lambda
 4. Create a CI/CD pipeline that deploys both the website and the lambda when new code is submitted.
 
+I've created this configuration for hosting developer documentation. For example check out https://developer.youi.tv/, which is powered by [Jekyll](https://jekyllrb.com/).
+
 ## Configuration
 
 If you haven't already, you need to create a free [AWS account](https://portal.aws.amazon.com/billing/signup?refid=em_127222&redirect_url=https%3A%2F%2Faws.amazon.com%2Fregistration-confirmation#/start).
@@ -36,4 +38,16 @@ Navigate to [Tutorial: Configuring a static website on Amazon S3](https://docs.a
 
 Use the index.html and error.html pages provided in this git repository. We can add your website once we have authentication and HTTPS supported.
 
+### Configuring CloudFront for my static website
 
+CloudFront offers a couple advantage, first it caches your website closer to your customers for rendering time is faster for the end user. Second, you can enable HTTPS (SSL) for better security.
+
+To configure CloudFront for your static website, check out [Using a website endpoint as the origin, with anonymous (public) access allowed](https://aws.amazon.com/premiumsupport/knowledge-center/cloudfront-serve-static-website/).
+
+When creating your [CloudFront distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-creating-console.html), 
+
+1. Origin Domain will be your S3 endpiont you created above, something like: BUCKET-NAME.s3-website-us-east-1.amazonaws.com.
+1. For oOrigin Domain protocol, select HTTP here - this is for communication between CloudFront and your S3 bucket, which is only configured to support HTTP.
+1. View settings, here choose 'Redirect HTTP to HTTPS' and set Allowed HTTP methods to 'GET, HEAD' only.
+1. For default root object, enter 'index.html' (without the quotes). Note this is option is you are using index.html as your root page for your site.
+1. Once you hit 'create' it will take some time to deploy before your CloudFront becomes active, time to go grab a coffee.
