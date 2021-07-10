@@ -51,3 +51,35 @@ When creating your [CloudFront distribution](https://docs.aws.amazon.com/AmazonC
 1. View settings, here choose 'Redirect HTTP to HTTPS' and set Allowed HTTP methods to 'GET, HEAD' only.
 1. For default root object, enter 'index.html' (without the quotes). Note this is option is you are using index.html as your root page for your site.
 1. Once you hit 'create' it will take some time to deploy before your CloudFront becomes active, time to go grab a coffee.
+
+Once CloudFront has been deployed, copy the 'distribution domain name' and paste it into a browser address bar - the index.html page will now render via https.
+
+### Restrict access to my static website
+
+So far we have a static website that can be accessed either directly on S3 via HTTP or through CloudFront on HTTPS. Now we want to limit that access to only CloudFront HTTPS and prevent users from hitting S3 directly.
+
+https://aws.amazon.com/premiumsupport/knowledge-center/cloudfront-access-to-amazon-s3/
+
+Right now CloudFront is accessing your S3 bucket as a static website, let's change that first.  
+
+1. Open the [CloudFront console](https://console.aws.amazon.com/cloudfront/)
+1. From the list of distributions, choose the distribution that serves content from the S3 bucket that you want to restrict access to.
+1. Choose the Origins tab.
+1. Select the Origin name and choose 'edit.'
+1. In the Origin Domain drop-down, choose your S3 bucket.
+1. For S3 Bucket Access, choose 'Yes use OAI (bucket can restrict access to only CloudFront).'
+1. Create a new OAI and choose Bucket Policy: 'Yes, update the bucket policy.'
+1. Save your changes.
+
+As above, try it out. Use the same 'distribution domain name' as above (for example: https://dfoo81275bar.cloudfront.net/) and the index.html page should render.
+
+Now navigate to the [S3 Console](https://console.aws.amazon.com/s3/) and turn off 'host static website' so that the S3 bucket will only be accessible through CloudFront.
+
+1. From the list of S3 buckets, choose the bucket that you created above.
+1. Choose the Properties tab.
+1. Scroll to the bottom, 'Static website hosting' and choose 'edit.'
+1. Disable 'Static website hosting.'
+
+Try it out again. As above use the same 'distribution domain name' as above (for example: https://dfoo81275bar.cloudfront.net/) and the index.html page should render.
+
+Now you have a static website hosted on AWS S3 and accessible to the public only through CloudFront on HTTPS! Take a break.
