@@ -24,66 +24,10 @@ At this point you will have a clone of this repository in your /Documents/Develo
 
 Let's use AWS for everything, this keeps things simple and free.  So let's start with using AWS to host your static website. How to host a static website on AWS S3 can be found [here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html).  Feel free to book mark that site so you can read it later and skip to 'Create an S3 Instance' below.
 
-### Create an S3 instance 
+### Configuring a static website on Amazon S3
 
-1. Navigate to [S3](https://s3.console.aws.amazon.com/s3/home?region=us-east-1#) and click the 'create bucket' button in the upper right.
-2. Click "Create Bucket" orange button.
-3. Give your bucket a name.
-4. Choose a region (I usually choose us-east-1 because that's my timezone)
-5. Choose "Block all public access." We'll modify this in the next section.
-6. The remaining setting defaults are fine.
-7. Click the orange "create bucket" at the bottom.
+Navigate to [Tutorial: Configuring a static website on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/HostingWebsiteOnS3Setup.html#step2-create-bucket-config-as-website) and follow the instructions to create a static website hosted on AWS S3.
 
-You should now see your bucket in the [AWS S3 Console](https://s3.console.aws.amazon.com/s3/)
-
-### Grant read access to your S3 Bucket so users can access your website
-
-https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteAccessPermissionsReqd.html
-
-1. Open the Amazon S3 console at [AWS S3 Console](https://s3.console.aws.amazon.com/s3/).
-2. Choose the name of the bucket that you have configured as a static website.
-3. Choose Permissions tab.
-4. Under Block public access (bucket settings), choose Edit.
-5. Clear Block all public access, and choose Save changes.
-
-### Add a bucket policy
-
-This step allows the public to access your website files through HTTP.  Later we'll add CloudFront and enable HTTPS for added security.
-
-1. Under Buckets, choose the name of your bucket.
-2. Choose Permissions tab.
-3. Under Bucket Policy, choose Edit.
-4. To grant public read access for your website, copy the following bucket policy, and paste it in the Bucket policy editor.
-
-```json
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "PublicReadGetObject",
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": [
-                "s3:GetObject"
-            ],
-            "Resource": [
-                "arn:aws:s3:::Bucket-Name/*"
-            ]
-        }
-    ]
-}
-```
-
-5. Replace "Bucket-Name" with your S3 bucket name.
-6. Choose Save changes.
-
-### Upload your website
-
-1. Open the Amazon S3 console at [AWS S3 Console](https://s3.console.aws.amazon.com/s3/).
-2. Select your new S3 bucket, click the upload button and add /Documents/Development/post-lamda-sample/home.html.
-3. Click upload (this small file will upload quickly)
-4. Now that home.html has been uploaded, click on it to open a details view. Copy the 'Object URL' and paste it into a new browser tab.  You should see "Hello World" displayed in the browser... if not, stop, go back and walk through the steps again.
-
-Great, you've uploaded Hello World! Take a break.  Next we'll look at adding CloudFront to support HTTPS and add user authentication so only registered users can access your website. THEN you can add your website to this bucket (don't do that yet).
+Use the index.html and error.html pages provided in this git repository. We can add your website once we have authentication and HTTPS supported.
 
 
