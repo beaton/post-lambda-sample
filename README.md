@@ -2,6 +2,12 @@
 
 This is a simple example of how to build and deploy a static website that sends a POST request to an AWS service.
 
+What we'll do:
+1. Create a static website hosted on AWS S3
+2. Create a CloudFormation configuration to deploy a lambda
+3. Add a button to our website that calls the lambda
+4. Create a CI/CD pipeline that deploys both the website and the lambda when new code is submitted.
+
 ## Configuration
 
 If you haven't already, you need to create a free [AWS account](https://portal.aws.amazon.com/billing/signup?refid=em_127222&redirect_url=https%3A%2F%2Faws.amazon.com%2Fregistration-confirmation#/start).
@@ -22,7 +28,7 @@ At this point you will have a clone of this repository in your /Documents/Develo
 
 ## Static website
 
-Let's use AWS for everything, this keeps things simple and free.  So let's start with using AWS to host your static website. How to host a static website on AWS S3 can be found [here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html).  Feel free to book mark that site so you can read it later and skip to 'Create an S3 Instance' below.
+Let's use AWS for everything, this keeps things simple and free.  You don't have to use AWS for everything, you can host your static website on Netlify for example, everything will still work.  So let's start with using AWS to host your static website. How to host a static website on AWS S3 can be found [here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html).  Feel free to book mark that site so you can read it later and skip to 'Create an S3 Instance' below.
 
 ### Configuring a static website on Amazon S3
 
