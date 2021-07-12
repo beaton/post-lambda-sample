@@ -2,7 +2,9 @@
 
 This is a simple example of how to build and deploy a static website that sends a POST request to an AWS service.
 
-This is an AWS CloudFormation configuration to deploy all the necessary AWS Services on to support this project:
+If you do not already know about AWS [CloudFormation](https://aws.amazon.com/cloudformation/), it's a configuration file (.json or .yaml formatted) that describes your deployment environment and all your required resources.  It is a consistent, predictable and repeatable way to deploy and redeploy your resources across multiple environments programmatically.
+
+This document describes how to use the cloudformation.json file in this folder to deploy all the necessary AWS Services to support this project:
 
 1. AWS S3 and AWS CloudFront for hosting a static website.
 1. AWS API Gateway and a simple lambda function that accepts a POST request from the client and returns the users IP address in plain text.
