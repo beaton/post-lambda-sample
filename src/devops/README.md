@@ -24,11 +24,11 @@ Within the cloudformation.json file, the "Resources" section defines what AWS re
 1. [apiGateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html) - a secure server-side API that controls access to the lambda.
 1. [lambdaFunction](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) - the python function that executes the HTTP POST request.
 1. [lambdaIAMRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) - an AWS IAM user role that has access to the lambda function from the API Gateway.
-1. [lambdaLogGroup]() - AWS CloudWatch log service that records log output of the lambda service. I set the retention to 5-days, which may not be enough in a production environment; but in production you would likely raise your logging threshold to INFO or higher (vs. DEBUG). 
+1. [lambdaLogGroup]() - AWS CloudWatch log service that records log output of the lambda service.
 
-NOTE: CloudWatch is a necessary service but it can be a very expensive part of any AWS deployment, continually watch your CloudWatch costs carefully as they add up!
+NOTE: CloudWatch is a necessary service but it can be a very expensive part of any AWS deployment, continually watch your CloudWatch costs carefully as they add up! I set the log retention to 5-days (see cloudformation.json) which may not be enough in a production environment.
 
-Note: The API Gateway can both authenticate a user request and validate the POST request body.
+Note: Although I have not supported it here, the API Gateway can both authenticate a user and validate the POST request body.
 
 The "Outputs" section of the cloudformation.json is the result of executing the cloudformation configuration. In our case we output the public URL required to call the API Gateway and the ARN, which helps identify the lambda that was created.
 
