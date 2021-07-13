@@ -1,4 +1,4 @@
-# post-lambda-sample
+# post-lambda-sample CloudFormation
 
 This is a simple example of how to build and deploy a static website that sends a POST request to an AWS service.
 
