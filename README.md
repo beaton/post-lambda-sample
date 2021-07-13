@@ -21,11 +21,22 @@ Note: this tutorial will use the AWS free tier; however, I always recommend you 
 
 First, if you haven't downloaded the git CLI, follow these [instructions](https://git-scm.com/download/mac) (change to /win if you are on a windows computer).  Once you've downloaded git CLI, open a terminal and type git --version to confirm it is installed correctly.  You should see something like, version 2.30.1 (Apple Git-130).
 
-In the terminal, navigate to > cd /Documents/Development and type > nkdir post-lamnda-sample then navigate into your newly created folder > cd post-lamda-sample.
+In the terminal, navigate to 
 
-Next, within the terminal window navigate to your desired development folder and and type, > git clone https://github.com/beaton/post-lambda-sample.git to clone this repo to your local folder.
+> cd /Documents/Development and type 
+> mkdir post-lamnda-sample 
+ 
+then navigate into your newly created folder 
 
-At this point you will have a clone of this repository in your /Documents/Development/post-lamda-sample directory.
+> cd post-lamda-sample.
+
+Next, within the terminal window navigate to your desired development folder and and type,
+
+> git clone https://github.com/beaton/post-lambda-sample.git 
+
+to clone this git repository to your local folder.
+
+At this point you will have a clone of this repository in your /Documents/Development/post-lamda-sample directory and you can create a static website, a lambda serverless service and a build pipeline to build, test and deploy right from github.
 
 ## AWS S3 hosted Static website
 
