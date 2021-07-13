@@ -7,7 +7,7 @@ What we'll do:
 1. Create a CloudFormation configuration to deploy a lambda
 1. Create a CI/CD pipeline that deploys both the website and the lambda when new code is submitted.
 
-I've created this configuration for hosting application admin consoles and developer documentation. For example check out https://developer.youi.tv/, which is powered by [Jekyll](https://jekyllrb.com/).
+I've created this configuration for hosting application B2B user admin consoles and developer documentation. For example check out https://developer.youi.tv/, which is powered by [Jekyll](https://jekyllrb.com/).
 
 ## Configuration
 
