@@ -1,11 +1,37 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-      <title>Hello World</title>
-    </head>
-    <body>
+<html>
 
-      <h1>Hello World</h1>
+<head>
+  <title>Hello World</title>
+</head>
 
-    </body>
- </html>
+<body>
+
+  <h1>Hello World</h1>
+
+  <button type="button" onclick="postJsonData()">Send Data</button>
+
+  <script>
+
+    // Async POST request to a remote server.
+    // Replace <PUT_YOUR_SERVERLESS_URL_HERE> with your Serverless URL.
+    async function postJsonData() {
+      const response = await fetch("<PUT_YOUR_SERVERLESS_URL_HERE>", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ "Hello": "World" })
+      });
+
+      // Assuming the HTTP response type is JSON format.
+      try {
+        const actualResponse = await response.json();
+      } catch (err) {
+        alert(err);
+      }
+    }
+
+  </script>
+
+</body>
+
+</html>
