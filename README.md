@@ -17,7 +17,7 @@ Note: this tutorial will use the AWS free tier; however, I always recommend you 
 
 ## Setup
 
-### Clone this repository
+### 1. Clone this repository
 
 First, if you haven't downloaded the git CLI, follow these [instructions](https://git-scm.com/download/mac) (change to /win if you are on a windows computer).  Once you've downloaded git CLI, open a terminal and type git --version to confirm it is installed correctly.  You should see something like, version 2.30.1 (Apple Git-130).
 
@@ -36,22 +36,22 @@ Next, within the terminal window navigate to your desired development folder and
 
 to clone this git repository to your local folder.
 
-At this point you will have a clone of this repository in your /Documents/Development/post-lamda-sample directory and you can create a static website, a lambda serverless service and a build pipeline to build, test and deploy right from github.
+At this point you will have a clone of this repository in your /Documents/Development/post-lamda-sample directory and can jump down to the next steps...
 
-## AWS Lambda serverless function
+## 2. AWS Lambda serverless function
 
 Next create an AWS Serverless function with AWS CloudFormation.
 
 Navigate to /src/server and follow the readme.md instructions to create a serverless lambda function to return hello world.
 
-## AWS S3 hosted Static website
+## 3. AWS S3 hosted Static website
 
 Now that you have an AWS Serverless function running in the cloud, let's create and host a simple static website in AWS S3. We'll use this website to call the serverless function above through an HTTP POST request.
 
 Navigate to /src/web/ and follow the readme.md instructions to create a static website hosted on S3.
  
 
-## AWS CodePipeline CI/CD pipeline
+## 4. AWS CodePipeline CI/CD pipeline
 
 Once you have a serverless function deployed and running in AWS and a static website that can call that serverless funciton, let's implement a CI/CD pipeline so that you can iteratively and incrementally make changes to both your serverless function and your static website and updates are automagically deployed.
 
