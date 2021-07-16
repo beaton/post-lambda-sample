@@ -29,7 +29,7 @@ To configure CloudFront for your static website, check out [Using a website endp
 When creating your [CloudFront distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-creating-console.html), 
 
 1. Origin Domain will be your S3 endpiont you created above, something like: BUCKET-NAME.s3-website-us-east-1.amazonaws.com.
-1. For oOrigin Domain protocol, select HTTP here - this is for communication between CloudFront and your S3 bucket, which is only configured to support HTTP.
+1. For Origin Domain protocol, select HTTP here - this is for communication between CloudFront and your S3 bucket, which is only configured to support HTTP.
 1. View settings, here choose 'Redirect HTTP to HTTPS' and set Allowed HTTP methods to 'GET, HEAD' only.
 1. For default root object, enter 'index.html' (without the quotes). Note this is option is you are using index.html as your root page for your site.
 1. Once you hit 'create' it will take some time to deploy before your CloudFront becomes active, time to go grab a coffee.
