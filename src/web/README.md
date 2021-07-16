@@ -1,28 +1,26 @@
 # post-lambda-sample
 
-This is a simple example of how to build and deploy a static website that sends a POST request to an AWS service.
-
-I've created this configuration for hosting application admin consoles and developer documentation. For example check out https://developer.youi.tv/, which is powered by [Jekyll](https://jekyllrb.com/).
+This is a simple example of how to build and deploy a very simple static website.
 
 ## Setup
 
-### Clone this repository
+## 1. Clone this repository
 
 You should have already cloned the parent directory and all sub-directories.
 
-## Static website
+## 2. Create a Static website
 
 Let's create a static website.  
 
-How to host a static website on AWS S3 can be found [here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html).  Feel free to book mark that site so you can read it later and skip to 'Create an S3 Instance' below.
+How to host a static website on AWS S3 can be found [here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html).  Feel free to book mark that site so you can read it later but feel free to skip it for now.
 
-### Configuring a static website on Amazon S3
+### 2a. Configuring a static website on Amazon S3
 
 Navigate to [Tutorial: Configuring a static website on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/HostingWebsiteOnS3Setup.html#step2-create-bucket-config-as-website) and follow the instructions to create a static website hosted on AWS S3.
 
 Use the index.html and error.html pages provided in this git repository. We can add your website once we have authentication and HTTPS supported.
 
-### Configuring CloudFront for my static website
+### 2b. Configuring CloudFront for my static website
 
 CloudFront offers a couple advantage, first it caches your website closer to your customers for rendering time is faster for the end user. Second, you can enable HTTPS (SSL) for better security.
 
@@ -38,7 +36,7 @@ When creating your [CloudFront distribution](https://docs.aws.amazon.com/AmazonC
 
 Once CloudFront has been deployed, copy the 'distribution domain name' and paste it into a browser address bar - the index.html page will now render via https.
 
-### Restrict access to my static website
+### 2c. Restrict access to my static website
 
 So far we have a static website that can be accessed either directly on S3 via HTTP or through CloudFront on HTTPS. Now we want to limit that access to only CloudFront HTTPS and prevent users from hitting S3 directly.
 
