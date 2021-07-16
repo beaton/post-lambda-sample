@@ -22,7 +22,9 @@ Use the index.html and error.html pages provided in this git repository. We can 
 
 ### 2b. Configuring CloudFront for my static website
 
-CloudFront offers a couple advantage, first it caches your website closer to your customers for rendering time is faster for the end user. Second, you can enable HTTPS (SSL) for better security.
+CloudFront offers a couple advantage, 
+1. It caches your website on the edge, closer to your customers for improved rendering time. 
+2. With CloudFront you can enable HTTPS (SSL), which encrypts HTTP requests and responses (it's more secure).
 
 To configure CloudFront for your static website, check out [Using a website endpoint as the origin, with anonymous (public) access allowed](https://aws.amazon.com/premiumsupport/knowledge-center/cloudfront-serve-static-website/).
 
