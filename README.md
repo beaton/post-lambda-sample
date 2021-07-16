@@ -38,14 +38,21 @@ to clone this git repository to your local folder.
 
 At this point you will have a clone of this repository in your /Documents/Development/post-lamda-sample directory and you can create a static website, a lambda serverless service and a build pipeline to build, test and deploy right from github.
 
-## AWS S3 hosted Static website
-
-Navigate to /src/web/ and follow the readme.md instructions to create a static website hosted on S3.
-
 ## AWS Lambda serverless function
 
-Navigate to /src/server and follow the readme.md instructions to create a serverless lambda function to return hello world. 
+Next create an AWS Serverless function with AWS CloudFormation.
+
+Navigate to /src/server and follow the readme.md instructions to create a serverless lambda function to return hello world.
+
+## AWS S3 hosted Static website
+
+Now that you have an AWS Serverless function running in the cloud, let's create and host a simple static website in AWS S3. We'll use this website to call the serverless function above through an HTTP POST request.
+
+Navigate to /src/web/ and follow the readme.md instructions to create a static website hosted on S3.
+ 
 
 ## AWS CodePipeline CI/CD pipeline
+
+Once you have a serverless function deployed and running in AWS and a static website that can call that serverless funciton, let's implement a CI/CD pipeline so that you can iteratively and incrementally make changes to both your serverless function and your static website and updates are automagically deployed.
 
 Naviate to /src/devops and follow the readme.md instructions to create a code pipeline that will build and deploy your code right from github.
